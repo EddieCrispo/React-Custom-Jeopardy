@@ -1,16 +1,26 @@
 .jeopardy-category {
-    display: grid;
-    grid-template-rows: 130px repeat(5, 1fr);
-    gap: 10px;
-    background-color: black;
+  display: grid;
+  grid-template-rows: 120px repeat(auto-fit, 100px);
+  gap: 8px;
 }
 
 .jeopardy-category h2 {
-    background-color: blue;
-    color: white;
-    text-align: center;
-    font-family: 'Georgia', serif;
-    font-size: 2rem;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  text-align: center;
+  font-family: "Georgia", serif;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 2px solid #d4af37;
+  overflow: hidden;
+  word-wrap: break-word;
+  hyphens: auto;
+  padding: 10px;
 }
-
 

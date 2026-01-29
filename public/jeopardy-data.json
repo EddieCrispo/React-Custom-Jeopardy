@@ -1,0 +1,191 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Testing 1",
+      "clues": [
+        {
+          "value": 200,
+          "question": "This element has the chemical symbol 'O'",
+          "answer": "What is Oxygen?"
+        },
+        {
+          "value": 400,
+          "question": "The study of earthquakes is called this",
+          "answer": "What is Seismology?"
+        },
+        {
+          "value": 600,
+          "question": "This planet is closest to the Sun",
+          "answer": "What is Mercury?"
+        },
+        {
+          "value": 800,
+          "question": "DNA stands for this",
+          "answer": "What is Deoxyribonucleic Acid?"
+        },
+        {
+          "value": 1000,
+          "question": "This scientist developed the theory of relativity",
+          "answer": "Who is Albert Einstein?"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Testing 2",
+      "clues": [
+        {
+          "value": 200,
+          "question": "This war ended in 1945",
+          "answer": "What is World War II?"
+        },
+        {
+          "value": 400,
+          "question": "The first President of the United States",
+          "answer": "Who is George Washington?"
+        },
+        {
+          "value": 600,
+          "question": "This empire was ruled by Julius Caesar",
+          "answer": "What is the Roman Empire?"
+        },
+        {
+          "value": 800,
+          "question": "The year the Berlin Wall fell",
+          "answer": "What is 1989?"
+        },
+        {
+          "value": 1000,
+          "question": "This document was signed in 1776",
+          "answer": "What is the Declaration of Independence?"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Geography and other bullshitsa djfjkla nfkanspina sflnoadip fhasnfin",
+      "clues": [
+        {
+          "value": 200,
+          "question": "The largest continent",
+          "answer": "What is Asia?"
+        },
+        {
+          "value": 400,
+          "question": "The capital of France",
+          "answer": "What is Paris?"
+        },
+        {
+          "value": 600,
+          "question": "The longest river in the world",
+          "answer": "What is the Nile?"
+        },
+        {
+          "value": 800,
+          "question": "This mountain range contains Mount Everest",
+          "answer": "What are the Himalayas?"
+        },
+        {
+          "value": 1000,
+          "question": "The smallest country in the world",
+          "answer": "What is Vatican City?"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Sports",
+      "clues": [
+        {
+          "value": 200,
+          "question": "This sport uses a round ball and goals",
+          "answer": "What is Soccer (Football)?"
+        },
+        {
+          "value": 400,
+          "question": "The Olympics are held every this many years",
+          "answer": "What is four?"
+        },
+        {
+          "value": 600,
+          "question": "This tennis tournament is held at Wimbledon",
+          "answer": "What is The Championships?"
+        },
+        {
+          "value": 800,
+          "question": "The number of players on a basketball team on court",
+          "answer": "What is five?"
+        },
+        {
+          "value": 1000,
+          "question": "This golfer has won the most Masters tournaments",
+          "answer": "Who is Jack Nicklaus?"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Movies",
+      "clues": [
+        {
+          "value": 200,
+          "question": "This movie features a shark terrorizing a beach town",
+          "answer": "What is Jaws?"
+        },
+        {
+          "value": 400,
+          "question": "The director of 'Jurassic Park'",
+          "answer": "Who is Steven Spielberg?"
+        },
+        {
+          "value": 600,
+          "question": "This movie won Best Picture in 1994, starring Tom Hanks",
+          "answer": "What is Forrest Gump?"
+        },
+        {
+          "value": 800,
+          "question": "The highest-grossing movie of all time (as of 2023)",
+          "answer": "What is Avatar?"
+        },
+        {
+          "value": 2000,
+          "question": "This actor played the Joker in 'The Dark Knight'",
+          "answer": "Who is Heath Ledger?"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Literature",
+      "clues": [
+        {
+          "value": 200,
+          "question": "The author of 'Romeo and Juliet'",
+          "answer": "Who is William Shakespeare?"
+        },
+        {
+          "value": 400,
+          "question": "This novel begins with 'It was the best of times, it was the worst of times'",
+          "answer": "What is A Tale of Two Cities?"
+        },
+        {
+          "value": 600,
+          "question": "The first book in the Harry Potter series",
+          "answer": "What is Harry Potter and the Philosopher's Stone?"
+        },
+        {
+          "value": 800,
+          "question": "This American author wrote 'The Great Gatsby'",
+          "answer": "Who is F. Scott Fitzgerald?"
+        },
+        {
+          "value": 1000,
+          "question": "The epic poem that tells the story of Odysseus",
+          "answer": "What is The Odyssey?"
+        }
+      ]
+    }
+  ]
+}
+

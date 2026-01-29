@@ -1,37 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { playSound } from '../../utils/sounds.js'
 import './Clue.css'
 
-const Clue = ({ value, clue }) => {
-    const [stage, setStage] = useState(0)
-    const [toggle, setToggle] = useState(false)
+const Clue = ({ value, clue, categoryId, clueIndex }) => {
+    const navigate = useNavigate()
+    const answeredQuestions = JSON.parse(localStorage.getItem('answeredQuestions') || '[]')
+    const questionKey = `${categoryId}-${clueIndex}`
+    const isAnswered = answeredQuestions.includes(questionKey)
     
     const handleClick = () => {
-        setStage(stage + 1)
-        setToggle(true)
+        if (!isAnswered) {
+            playSound('click')
+            navigate(`/clue/${categoryId}/${clueIndex}`)
+        }
     }
-
-    let content 
-    let className
-    if (stage === 0) {
-        content = `$${value}`
-        className = `jeopardy-clue dollar-value`
-    } else if (stage === 1) {
-        content = <p className='jeopardy-clue-container'>{clue ? clue.question : null}</p>
-        className = `jeopardy-clue`
-    } else if (stage === 2) {
-        content = <p>{clue ? clue.answer : null}</p>
-        className = `jeopardy-clue`
-    }
-
-
 
     return (
-        <div className={className} style={{
-            prespective: toggle ? '7em' : '',
-            }} 
+        <div 
+            className={`jeopardy-clue dollar-value ${isAnswered ? 'answered' : ''}`} 
             onClick={handleClick}
+            style={{ cursor: isAnswered ? 'not-allowed' : 'pointer' }}
         >
-            { content }
+            ${value}
         </div>
     )
 }

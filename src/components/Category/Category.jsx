@@ -1,29 +1,39 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
-import Clue from '../Clue/Clue.jsx'
-import './Category.css'
+import React from "react";
+import Clue from "../Clue/Clue.jsx";
+import "./Category.css";
 
 const Category = ({ category }) => {
-    const values = [200, 400, 600, 800, 1000]
+  const toTitleCase = (str) => {
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
 
-    const toTitleCase = (str) => {
-        return str
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join(' ')
-    }
+  const getFontSize = (text) => {
+    if (text.length > 50) return "1.4rem";
+    if (text.length > 30) return "1.8rem";
+    return "2.4rem";
+  };
 
-    const title = toTitleCase(category.title)
+  const title = toTitleCase(category.title);
 
-    return (
-        <div className="jeopardy-category">
-            <h2>{title}</h2>
-            {values.map((value, index) => {
-                const clue = category.clues.find((clue) => clue.value === value)
-                return <Clue key={index} value={value} clue={clue} />
-            })}
-        </div>
-    )
-}
+  return (
+    <div className="jeopardy-category">
+      <h2 style={{ fontSize: getFontSize(title) }}>{title}</h2>
+      {category.clues.map((clue, index) => (
+        <Clue
+          key={index}
+          value={clue.value}
+          clue={clue}
+          categoryId={category.id}
+          clueIndex={index}
+        />
+      ))}
+    </div>
+  );
+};
 
-export default Category
+export default Category;
+

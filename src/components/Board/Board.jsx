@@ -4,44 +4,52 @@ import './Board.css'
 
 function Board() {
     const [categories, setCategories] = useState([]);
+    const [players, setPlayers] = useState(() => {
+        const saved = localStorage.getItem('jeopardyPlayers')
+        return saved ? JSON.parse(saved) : [
+            { id: 1, name: 'Player 1', score: 0 },
+            { id: 2, name: 'Player 2', score: 0 },
+            { id: 3, name: 'Player 3', score: 0 }
+        ]
+    })
 
-    // This useEffect hook will run once after the component is first rendered.
     useEffect(() => {
         const fetchData = async () => {
-            let offset = Math.floor(Math.random() * 28175) + 1
-    
-            // Fetch the categories from the API.
-            const categoryUrl = `/api/categories?count=6&offset=${offset}`;
-
-            const categoryResponse = await fetch(categoryUrl);
-            const categoryData = await categoryResponse.json();
-            // console.log(categoryData)
-    
-            // Fetch the clues for each category.   
-            const categoriesWithClues = await Promise.all(categoryData.map(async (category) => {
-                const clueUrl = `/api/clues?category=${category.id}`;
-
-                const clueResponse = await fetch(clueUrl);
-                const clueData = await clueResponse.json();
-    
-                // Attach the clues to the category.
-                return {
-                    ...category,
-                    clues: clueData,
-                };
-            }));
-    
-            setCategories(categoriesWithClues);
+            const response = await fetch('/jeopardy-data.json');
+            const data = await response.json();
+            setCategories(data.categories);
         }
 
         fetchData();
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem('jeopardyPlayers', JSON.stringify(players))
+    }, [players])
+
+    const resetGame = () => {
+        const resetPlayers = players.map(p => ({ ...p, score: 0 }))
+        setPlayers(resetPlayers)
+        localStorage.removeItem('answeredQuestions')
+        localStorage.removeItem('wrongAnswers')
+    }
+
     return (
-        <div className="jeopardy-board">
-            {categories.map((category) => (
-                <Category key={category.id} category={category} />
-            ))}
+        <div>
+            <div className="scoreboard">
+                {players.map(player => (
+                    <div key={player.id} className="player-score">
+                        <div className="player-name">{player.name}</div>
+                        <div className="score">${player.score}</div>
+                    </div>
+                ))}
+                <button className="reset-btn" onClick={resetGame}>Reset Game</button>
+            </div>
+            <div className="jeopardy-board">
+                {categories.map((category) => (
+                    <Category key={category.id} category={category} />
+                ))}
+            </div>
         </div>
     );
 }

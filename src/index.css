@@ -5,5 +5,13 @@
 }
 
 body {
-    background-color: black;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+    color: white;
+}
+
+.App {
+    padding: 20px;
+    min-height: 100vh;
 }
