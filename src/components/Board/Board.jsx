@@ -1,38 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Category from '../Category/Category.jsx'
+import { useGameContext } from '../../context/GameContext.jsx'
 import './Board.css'
 
 function Board() {
-    const [categories, setCategories] = useState([]);
-    const [players, setPlayers] = useState(() => {
-        const saved = localStorage.getItem('jeopardyPlayers')
-        return saved ? JSON.parse(saved) : [
-            { id: 1, name: 'Player 1', score: 0 },
-            { id: 2, name: 'Player 2', score: 0 },
-            { id: 3, name: 'Player 3', score: 0 }
-        ]
-    })
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('/jeopardy-data.json');
-            const data = await response.json();
-            setCategories(data.categories);
-        }
-
-        fetchData();
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('jeopardyPlayers', JSON.stringify(players))
-    }, [players])
-
-    const resetGame = () => {
-        const resetPlayers = players.map(p => ({ ...p, score: 0 }))
-        setPlayers(resetPlayers)
-        localStorage.removeItem('answeredQuestions')
-        localStorage.removeItem('wrongAnswers')
-    }
+    const { categories, players, resetGame } = useGameContext()
 
     return (
         <div>

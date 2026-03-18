@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { playSound } from '../../utils/sounds.js'
+import { useGameContext } from '../../context/GameContext.jsx'
 import './Clue.css'
 
 const Clue = ({ value, clue, categoryId, clueIndex }) => {
     const navigate = useNavigate()
-    const answeredQuestions = JSON.parse(localStorage.getItem('answeredQuestions') || '[]')
+    const { answeredQuestions } = useGameContext()
     const questionKey = `${categoryId}-${clueIndex}`
     const isAnswered = answeredQuestions.includes(questionKey)
     
