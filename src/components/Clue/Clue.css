@@ -1,72 +1,37 @@
-.jeopardy-clue-container {
-    width: 60vw;
-    height: 60vh;
-    padding: 3rem;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    border: 8px solid #d4af37;
-    border-radius: 15px;
-    z-index: 1000;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    animation: slideIn 0.3s ease-out;
-    cursor: pointer;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
 .jeopardy-clue {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    font-size: 1.8rem;
+    color: #d4af37;
+    font-size: 3.5rem;
+    font-weight: 900;
     cursor: pointer;
-    height: 100px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid transparent;
+    height: 120px;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+    background: linear-gradient(180deg, #060ce9, #0000af);
+    border: 3px solid #d4af37;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    font-family: 'Georgia', serif;
 }
 
 .jeopardy-clue:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    border-color: #d4af37;
-}
-
-.dollar-value {
-    font-size: 3rem;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #d4af37;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    background: linear-gradient(180deg, #0a11ff, #060ce9);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    z-index: 10;
 }
 
 .dollar-value.answered {
-    background: linear-gradient(135deg, #555, #777);
-    color: #999;
-    opacity: 0.6;
+    background: #00003f;
+    color: transparent;
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: none;
+    cursor: default;
 }
 
-.jeopardy-clue-container p {
-    font-size: 2.2rem;
-    line-height: 1.4;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-weight: 500;
+.dollar-value.answered:hover {
+    transform: none;
 }

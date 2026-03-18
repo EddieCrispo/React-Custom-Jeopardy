@@ -5,13 +5,14 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    font-family: 'Georgia', serif;
+    background: radial-gradient(circle, #0000af 0%, #00003f 100%);
+    font-family: 'Georgia', 'Times New Roman', serif;
     min-height: 100vh;
     color: white;
+    overflow-x: hidden;
 }
 
 .App {
-    padding: 20px;
+    padding: 40px;
     min-height: 100vh;
 }

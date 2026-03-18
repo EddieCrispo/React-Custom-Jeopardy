@@ -20,6 +20,7 @@ export const GameProvider = ({ children }) => {
         const saved = localStorage.getItem('wrongAnswers')
         return saved ? JSON.parse(saved) : {}
     })
+    const [isGameOver, setIsGameOver] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,6 +47,18 @@ export const GameProvider = ({ children }) => {
         localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers))
     }, [wrongAnswers])
 
+    // Check for game over
+    useEffect(() => {
+        if (categories.length > 0) {
+            const totalClues = categories.reduce((sum, cat) => sum + cat.clues.length, 0)
+            if (answeredQuestions.length === totalClues && totalClues > 0) {
+                setIsGameOver(true)
+            } else {
+                setIsGameOver(false)
+            }
+        }
+    }, [answeredQuestions, categories])
+
     const markCorrect = (playerId, questionKey, value) => {
         playSound('correct')
         const updatedPlayers = players.map(p => 
@@ -71,10 +84,9 @@ export const GameProvider = ({ children }) => {
         newWrongAnswers[questionKey].push(playerId)
         setWrongAnswers(newWrongAnswers)
 
-        // If all players answered wrong, disable the question
-        if (newWrongAnswers[questionKey].length === gameConfig.players.length) {
+        if (newWrongAnswers[questionKey].length === players.length) {
             setAnsweredQuestions(prev => [...prev, questionKey])
-            return true // Question exhausted
+            return true
         }
         return false
     }
@@ -88,6 +100,7 @@ export const GameProvider = ({ children }) => {
         setPlayers(resetPlayers)
         setAnsweredQuestions([])
         setWrongAnswers({})
+        setIsGameOver(false)
         localStorage.removeItem('jeopardyPlayers')
         localStorage.removeItem('answeredQuestions')
         localStorage.removeItem('wrongAnswers')
@@ -98,6 +111,7 @@ export const GameProvider = ({ children }) => {
         players,
         answeredQuestions,
         wrongAnswers,
+        isGameOver,
         markCorrect,
         markIncorrect,
         skipClue,
