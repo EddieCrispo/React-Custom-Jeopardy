@@ -1,6 +1,5 @@
 // Shared AudioContext for efficiency
 let audioContext = null
-let currentTimerSource = null
 
 const getAudioContext = () => {
   if (!audioContext) {
@@ -53,14 +52,14 @@ export const playSound = (type) => {
       break
 
     case 'timer':
-      // Return a function to stop the timer
       const interval = setInterval(() => {
-        // Simple 2-note "Think!" melody simulation
         const now = ctx.currentTime
-        createTone(440, 0.1, 'triangle', now) // A4
-        createTone(554.37, 0.1, 'triangle', now + 0.25) // C#5
+        createTone(440, 0.1, 'triangle', now)
+        createTone(554.37, 0.1, 'triangle', now + 0.25)
       }, 500)
-      
       return () => clearInterval(interval)
+    
+    default:
+      return null
   }
 }
